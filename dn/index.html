@@ -13,7 +13,6 @@
 </html> -->
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,18 +21,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+
 </head>
 <body>
     <script type="text/javascript">
-    async function getUser() {
-      try {
-        const response = await axios.get('https://pokeapi.co/api/v2/pokemon/1');
-        console.log(response);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-    getUser()
+        async function getUser() {
+          try {
+            const response = await axios.get('https://pokeapi.co/api/v2/pokemon/1');
+            console.log(response.data.name, 1);
+          } catch (error) {
+            console.error(error);
+          }
+        }
+        getUser()
+
+        axios.get('https://pokeapi.co/api/v2/pokemon/1')
+        .then(function (response) {
+            // handle success
+            console.log(response.data.name, 2);
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        })
+        .finally(function () {
+            // always executed
+        });
     </script>
 </body>
 </html>
